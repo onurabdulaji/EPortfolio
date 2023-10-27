@@ -17,7 +17,7 @@ namespace Project.BLL.DependencyResolvers
             ServiceProvider serviceProvider = services.BuildServiceProvider();
             IConfiguration configuration = serviceProvider.GetService<IConfiguration>();
             services.AddDbContextPool<MyContext>(options => options.UseSqlServer
-            (configuration.GetConnectionString("DefaultConnection")).UseLazyLoadingProxies());
+            (configuration.GetConnectionString("MyConnection")).UseLazyLoadingProxies());
 
             return services;
         }

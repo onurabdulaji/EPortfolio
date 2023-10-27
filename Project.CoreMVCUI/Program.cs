@@ -1,6 +1,11 @@
+using Project.BLL.DependencyResolvers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContextService();
+builder.Services.AddIdentityService();
+builder.Services.AddRepositoryManagerService();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

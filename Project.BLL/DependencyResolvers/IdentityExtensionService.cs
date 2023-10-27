@@ -14,13 +14,15 @@ namespace Project.BLL.DependencyResolvers
     {
         public static IServiceCollection AddIdentityService(this IServiceCollection services)
         {
-            services.AddIdentity<AppUser, IdentityRole>(x =>
+            services.AddIdentity<AppUser, AppRole>(x =>
             {
-                x.Password.RequiredUniqueChars = 0;
-                x.Password.RequiredLength = 8;
+                x.Password.RequireNonAlphanumeric = false;
+                x.Password.RequiredUniqueChars = 12;
             }).AddEntityFrameworkStores<MyContext>();
+
 
             return services;
         }
     }
 }
+
